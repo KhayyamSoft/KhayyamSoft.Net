@@ -10,7 +10,7 @@
     <PackageProjectUrl>https://github.com/KhayyamApps/Security</PackageProjectUrl>
     <RepositoryUrl>https://github.com/KhayyamApps/Security</RepositoryUrl>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
-    <SignAssembly>true</SignAssembly>
+    <SignAssembly>false</SignAssembly>
     <AssemblyOriginatorKeyFile>KEY.pfx</AssemblyOriginatorKeyFile>
     <PackageIcon>icon_security.png</PackageIcon>
     <PackageIconUrl />
