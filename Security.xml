@@ -4,5 +4,59 @@
         <name>Security</name>
     </assembly>
     <members>
+        <member name="T:Security.Crypto.Asymmetric">
+            <summary>
+            Providing Methods To Encrypt and Decrypt Data Using Asymmetric Cryptography Algoritms
+            </summary>
+        </member>
+        <member name="T:Security.Crypto.Symmetric">
+            <summary>
+            Providing Methods To Encrypt and Decrypt Data Using Symmetric Cryptography Algoritms
+            </summary>
+        </member>
+        <member name="T:Security.Hash.Hash">
+            <summary>
+            Providing Common Hash Functions
+            </summary>
+        </member>
+        <member name="M:Security.Hash.Hash.GetSHA256Hash(System.String)">
+            <summary>
+            Takes a string as input and returns it hashed by SHA256 algorithm as a string
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Security.KeyGenerator.KeyGenerator">
+            <summary>
+            Providing Methods to Generate Passwords and Keys
+            </summary>
+        </member>
+        <member name="M:Security.KeyGenerator.KeyGenerator.GeneratePassword(System.Int32,System.Boolean)">
+            <summary>
+            Generate Random Password
+            </summary>
+            <param name="length">Password Length (should be equal or greater than 8)</param>
+            <param name="containAmbiguous">Wheter to include ambiguous characters ({}[]()/\'"`~,;:.&lt;&gt;) in password or not</param>
+            <returns>Random Password</returns>
+        </member>
+        <member name="T:Security.Utilities.Arrays">
+            <summary>
+            Providing Helper Methods To Manipulate Arrays
+            </summary>
+        </member>
+        <member name="M:Security.Utilities.Arrays.ShuffleArray``1(``0[])">
+            <summary>
+            Shuffle an Array Based on Fisher–Yates Modern Algorithm
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Security.Utilities.Arrays.ShuffleString(System.String)">
+            <summary>
+            Shuffle a String Based on Fisher–Yates Modern Algorithm
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
     </members>
 </doc>
