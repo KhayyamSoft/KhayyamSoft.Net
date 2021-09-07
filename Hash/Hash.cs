@@ -5,7 +5,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Security
+namespace Security.Hash
 {
     /// <summary>
     /// This class has a hash function
