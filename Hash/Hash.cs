@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace Security.Hash
 {
     /// <summary>
-    /// This class has a hash function
+    /// Providing Common Hash Functions
     /// </summary>
     public static class Hash
     {
