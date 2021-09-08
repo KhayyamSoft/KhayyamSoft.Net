@@ -16,13 +16,29 @@ namespace Security.Hash
         /// Takes a string as input and returns it hashed by SHA256 algorithm as a string
         /// </summary>
         /// <param name="input"></param>
-        /// <returns></returns>
+        /// <returns>SHA256Hash</returns>
         public static string GetSHA256Hash(string input) 
         {
             using (var sha256 = SHA256.Create())
             {
                 var byteValue = Encoding.UTF8.GetBytes(input);
                 var byteHash = sha256.ComputeHash(byteValue);
+
+                return Convert.ToBase64String(byteHash);
+            }
+        }
+
+        /// <summary>
+        /// Takes a string as input and returns it hashed by SHA512 algorithm as a string
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns>SHA512Hash</returns>
+        public static string GetSHA512Hash(string input) 
+        {
+            using (var sha512 = SHA512.Create())
+            {
+                var byteValue = Encoding.UTF8.GetBytes(input);
+                var byteHash = sha512.ComputeHash(byteValue);
 
                 return Convert.ToBase64String(byteHash);
             }
