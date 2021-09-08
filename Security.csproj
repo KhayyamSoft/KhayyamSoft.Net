@@ -22,6 +22,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include=".github\ISSUE_TEMPLATE\bug_report.md" />
+    <None Include=".github\ISSUE_TEMPLATE\custom.md" />
+    <None Include=".github\ISSUE_TEMPLATE\feature_request.md" />
     <None Include="icon_security.png">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
