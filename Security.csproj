@@ -19,9 +19,15 @@
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DocumentationFile>C:\Users\Ali\source\repos\KhayyamApps\Security\Security.xml</DocumentationFile>
-  </PropertyGroup>
-
+  </PropertyGroup> 
+	
   <ItemGroup>
+    <Compile Remove="SecurityTest\**" />
+    <EmbeddedResource Remove="SecurityTest\**" />
+    <None Remove="SecurityTest\**" />
+  </ItemGroup>
+
+	<ItemGroup>
     <None Include="icon_security.png">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
