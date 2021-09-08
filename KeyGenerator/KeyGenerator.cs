@@ -50,5 +50,21 @@ namespace Security.KeyGenerator
 
             return Arrays.ShuffleString(sb.ToString());
         }
+
+        /// <summary>
+        /// Generate Random Byte Sequence
+        /// </summary>
+        /// <param name="length">Key Bytes Number</param>
+        /// <returns>Array</returns>
+        public static byte[] GenerateKey(int length)
+        {
+            if (length <= 0) return Array.Empty<byte>();
+
+            var random = new Random((int)DateTime.Now.Ticks);
+            var key = new byte[length];
+            random.NextBytes(key);
+
+            return key;
+        }
     }
 }

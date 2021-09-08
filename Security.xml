@@ -39,6 +39,13 @@
             <param name="containAmbiguous">Wheter to include ambiguous characters ({}[]()/\'"`~,;:.&lt;&gt;) in password or not</param>
             <returns>Random Password</returns>
         </member>
+        <member name="M:Security.KeyGenerator.KeyGenerator.GenerateKey(System.Int32)">
+            <summary>
+            Generate Random Byte Sequence
+            </summary>
+            <param name="length">Key Bytes Number</param>
+            <returns>Array</returns>
+        </member>
         <member name="T:Security.Utilities.Arrays">
             <summary>
             Providing Helper Methods To Manipulate Arrays

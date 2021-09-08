@@ -29,5 +29,20 @@ namespace SecurityTest
             Console.WriteLine(password);
             Assert.IsTrue(password.Length == 16);
         }
+
+        [TestMethod]
+        public void TestZeroKeyGenerator()
+        {
+            var key1 = KeyGenerator.GenerateKey(0).Length == 0;
+            var key2 = KeyGenerator.GenerateKey(-1).Length == 0;
+            Assert.IsTrue(key1 & key2);
+        }
+
+        [TestMethod]
+        public void TestKeyGenerator()
+        {
+            var key = KeyGenerator.GenerateKey(256);
+            Assert.IsTrue(key.Length == 256);
+        }
     }
 }
