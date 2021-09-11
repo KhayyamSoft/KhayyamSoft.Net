@@ -4,15 +4,37 @@
         <name>Security</name>
     </assembly>
     <members>
-        <member name="T:Security.Crypto.Asymmetric">
+        <member name="T:Security.Crypto.AES">
             <summary>
-            Providing Methods To Encrypt and Decrypt Data Using Asymmetric Cryptography Algoritms
+            Providing methods to encrypt and decrypt data using Advanced Encryption Standard (AES) / Rijndael 
             </summary>
         </member>
-        <member name="T:Security.Crypto.Symmetric">
+        <member name="M:Security.Crypto.AES.Encrypt(System.String,System.Byte[],System.Byte[])">
             <summary>
-            Providing Methods To Encrypt and Decrypt Data Using Symmetric Cryptography Algoritms
+            Encrypt an input string using provided key and iv with AES algorithm
             </summary>
+            <param name="plainText">Data to encrypt</param>
+            <param name="key">Key to encrypt</param>
+            <param name="iv">Initialization Vector (IV)</param>
+            <returns>Encrypted byte array</returns>
+        </member>
+        <member name="M:Security.Crypto.AES.Encrypt(System.String,System.Byte[]@,System.Byte[]@)">
+            <summary>
+            Encrypt an input string using random key and iv with AES algorithm
+            </summary>
+            <param name="plainText">Data to encrypt</param>
+            <param name="key">Encrypt key</param>
+            <param name="iv">Encrypt initialization vector (IV)</param>
+            <returns>Encrypted byte array</returns>
+        </member>
+        <member name="M:Security.Crypto.AES.Decrypt(System.Byte[],System.Byte[],System.Byte[])">
+            <summary>
+            Decrypt an encrypted byte array using provided key and iv with AES algorithm
+            </summary>
+            <param name="encryptedText">Byte array of encrypted text</param>
+            <param name="key">Encrypt key</param>
+            <param name="iv">Encrypt initialization vector (IV)</param>
+            <returns>Decrypted string</returns>
         </member>
         <member name="T:Security.Hash.Hash">
             <summary>
