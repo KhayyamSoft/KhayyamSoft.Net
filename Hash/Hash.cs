@@ -4,6 +4,9 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using System.Runtime.CompilerServices;
+using Org.BouncyCastle.Crypto.Digests;
+
 
 namespace Security.Hash
 {
@@ -15,7 +18,7 @@ namespace Security.Hash
         /// <summary>
         /// Takes a string as input and returns it hashed by SHA256 algorithm as a string
         /// </summary>
-        /// <param name="input"></param>
+        /// <param name="input">Must Be Not Null</param>
         /// <returns>SHA256Hash</returns>
         public static string GetSHA256Hash(string input) 
         {
@@ -31,7 +34,7 @@ namespace Security.Hash
         /// <summary>
         /// Takes a string as input and returns it hashed by SHA512 algorithm as a string
         /// </summary>
-        /// <param name="input"></param>
+        /// <param name="input">Must Be Not Null</param>
         /// <returns>SHA512Hash</returns>
         public static string GetSHA512Hash(string input) 
         {
@@ -43,5 +46,6 @@ namespace Security.Hash
                 return Convert.ToBase64String(byteHash);
             }
         }
+
     }
 }
