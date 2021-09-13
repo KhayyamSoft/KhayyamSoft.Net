@@ -18,7 +18,7 @@ namespace SecurityTest
         public void HashNullInputTest() 
         {
             var test = Hash.GetSHA256Hash("");
-            Assert.IsNull(test);
+            Assert.IsNotNull(test);
         }
     }
 }
