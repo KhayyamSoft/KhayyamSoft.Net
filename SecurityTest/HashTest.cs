@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace SecurityTest
 {
+    /// <summary>
+    /// Test Class For Hash Class
+    /// </summary>
     [TestClass]
     public class HashTest
     {
