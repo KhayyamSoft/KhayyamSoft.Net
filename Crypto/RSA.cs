@@ -15,6 +15,7 @@ namespace Security.Crypto
         /// (using RSACryptoServiceProvider.ExportParameters(false) <br/>
         /// example for use this method:
         /// encryptedData = RSAEncrypt(dataToEncrypt, RSA.ExportParameters(false));
+        /// you must creat an instance of RSACryptoServiceProvider for use this method.
         /// </summary>
         /// <param name="input">Data to encrypt</param>
         /// <param name="rsaKeyInfo">RSAKeyInfo (Encrypt key)</param>
