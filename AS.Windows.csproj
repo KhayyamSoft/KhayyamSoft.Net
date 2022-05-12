@@ -5,6 +5,7 @@
     <Version>0.1</Version>
     <AssemblyVersion>$(Version)</AssemblyVersion>
     <FileVersion>$(Version)</FileVersion>
+		<UseWPF>true</UseWPF>
   </PropertyGroup>
 
 </Project>
