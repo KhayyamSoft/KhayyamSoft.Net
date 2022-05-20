@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Security.csproj" />
+    <ProjectReference Include="..\KhayyamApps.Security.csproj" />
   </ItemGroup>
 
 </Project>

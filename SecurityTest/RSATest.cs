@@ -1,11 +1,11 @@
 ﻿using System.Security.Cryptography;
 using System.Text;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using RSA = Security.Crypto.RSA;
+using RSA = KhayyamApps.Security.Crypto.RSA;
 
 namespace SecurityTest
 {
-    [TestClass]
+	[TestClass]
     public class RSATest
     {
         [TestMethod]

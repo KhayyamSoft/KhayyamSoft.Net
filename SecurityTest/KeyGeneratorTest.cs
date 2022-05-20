@@ -1,10 +1,10 @@
 using System;
+using KhayyamApps.Security.KeyGenerator;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Security.KeyGenerator;
 
 namespace SecurityTest
 {
-    [TestClass]
+	[TestClass]
     public class KeyGeneratorTest
     {
         [TestMethod]

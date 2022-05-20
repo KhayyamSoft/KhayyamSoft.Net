@@ -3,7 +3,7 @@ using System.Text;
 using Org.BouncyCastle.Crypto;
 using Org.BouncyCastle.Crypto.Engines;
 
-namespace Security.BC
+namespace KhayyamApps.Security.BC
 {
 	public static class AES
 	{

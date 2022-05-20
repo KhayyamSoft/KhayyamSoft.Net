@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text;
 
-namespace Security.BC
+namespace KhayyamApps.Security.BC
 {
 	internal static class DataHelper
 	{

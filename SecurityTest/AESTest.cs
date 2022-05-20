@@ -1,10 +1,10 @@
 ﻿using System;
+using KhayyamApps.Security.Crypto;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Security.Crypto;
 
 namespace SecurityTest
 {
-    [TestClass]
+	[TestClass]
     public class AESTest
     {
         [TestMethod]

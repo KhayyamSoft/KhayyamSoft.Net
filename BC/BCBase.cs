@@ -3,7 +3,7 @@ using Org.BouncyCastle.Crypto.Parameters;
 using Org.BouncyCastle.Crypto;
 using System;
 
-namespace Security.BC
+namespace KhayyamApps.Security.BC
 {
 	public static class BCBase
 	{
