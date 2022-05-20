@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31515.178
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31912.275
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Security", "Security.csproj", "{5BB6BF0F-AB78-497F-86DE-2F3D2D91A095}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SecurityTest", "SecurityTest\SecurityTest.csproj", "{9FCD323E-4C4A-45DB-A2B7-411974B0CCC1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SecurityTest", "SecurityTest\SecurityTest.csproj", "{9FCD323E-4C4A-45DB-A2B7-411974B0CCC1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

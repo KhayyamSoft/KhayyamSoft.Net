@@ -4,6 +4,50 @@
         <name>Security</name>
     </assembly>
     <members>
+        <member name="M:Security.BC.AES.Encrypt(System.String,System.ReadOnlySpan{System.Char})">
+            <summary>
+            Encrypt Text With Specified Key And AES Engine
+            </summary>
+            <param name="plain">Raw Text</param>
+            <param name="key">Key For Encryption</param>
+            <returns>Base64 Encrypted String</returns>
+        </member>
+        <member name="M:Security.BC.AES.Decrypt(System.String,System.ReadOnlySpan{System.Char})">
+            <summary>
+            Decrypt Text With Specified Key And AES Engine
+            </summary>
+            <param name="cipher">Encrypted Text</param>
+            <param name="key">Key For Decryption</param>
+            <returns>UTF-8 Decrypted String</returns>
+        </member>
+        <member name="M:Security.BC.BCBase.EncryptOrDecrypt(System.Boolean,System.Byte[],System.ReadOnlySpan{System.Byte},Org.BouncyCastle.Crypto.IBlockCipher)">
+            <summary>
+            Encrypt/Decrypt Bytes Sequence With A Specified Key And BouncyCastle Crypto Engine
+            </summary>
+            <param name="forEncrypt">Set true For Encrypt And false For Decrypt</param>
+            <param name="input">Bytes Sequence To Encrypt/Decrypt</param>
+            <param name="keyByte">Encrypt/Decrypt Key</param>
+            <param name="blockCipher">Use One Engine From Org.BouncyCastle.Crypto.Engines</param>
+            <returns></returns>
+        </member>
+        <member name="M:Security.BC.BCBase.Encrypt(System.Byte[],System.ReadOnlySpan{System.Byte},Org.BouncyCastle.Crypto.IBlockCipher)">
+            <summary>
+            Encrypt Bytes With Specified Key And BouncyCastle Crypto Engine
+            </summary>
+            <param name="plain">Unencrypted Bytes</param>
+            <param name="keyByte">Key For Encryption</param>
+            <param name="blockCipher">Use One Engine From Org.BouncyCastle.Crypto.Engines</param>
+            <returns>Encrypted Bytes</returns>
+        </member>
+        <member name="M:Security.BC.BCBase.Decrypt(System.String,System.ReadOnlySpan{System.Byte},Org.BouncyCastle.Crypto.IBlockCipher)">
+            <summary>
+            Decrypt Base64 Encoded String With Specified Key And BouncyCastle Crypto Engine
+            </summary>
+            <param name="cipher">Base64 Encoded String</param>
+            <param name="keyByte">Key For Decryption</param>
+            <param name="blockCipher">Use One Engine From Org.BouncyCastle.Crypto.Engines</param>
+            <returns>Decrypted Bytes</returns>
+        </member>
         <member name="T:Security.Crypto.AES">
             <summary>
             Providing methods to encrypt and decrypt data using Advanced Encryption Standard (AES) / Rijndael 
@@ -45,8 +89,15 @@
             <summary>
             Takes a string as input and returns it hashed by SHA256 algorithm as a string
             </summary>
-            <param name="input"></param>
-            <returns></returns>
+            <param name="input">Must Be Not Null</param>
+            <returns>SHA256Hash</returns>
+        </member>
+        <member name="M:Security.Hash.Hash.GetSHA512Hash(System.String)">
+            <summary>
+            Takes a string as input and returns it hashed by SHA512 algorithm as a string
+            </summary>
+            <param name="input">Must Be Not Null</param>
+            <returns>SHA512Hash</returns>
         </member>
         <member name="T:Security.KeyGenerator.KeyGenerator">
             <summary>
