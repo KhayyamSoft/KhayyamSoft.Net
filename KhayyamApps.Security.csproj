@@ -5,16 +5,19 @@
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <Authors>KhayyamApps</Authors>
     <Company>KhayyamApps</Company>
-    <Copyright>2021</Copyright>
+    <Copyright>2022</Copyright>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <PackageProjectUrl>https://github.com/KhayyamApps/Security</PackageProjectUrl>
     <RepositoryUrl>https://github.com/KhayyamApps/Security</RepositoryUrl>
-    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <SignAssembly>false</SignAssembly>
     <AssemblyOriginatorKeyFile>KEY.pfx</AssemblyOriginatorKeyFile>
     <PackageIcon>icon_security.png</PackageIcon>
     <PackageIconUrl />
     <ApplicationIcon>icon_security.ico</ApplicationIcon>
+    <Version>0.2</Version>
+    <AssemblyVersion>$(Version)</AssemblyVersion>
+    <FileVersion>$(Version)</FileVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
