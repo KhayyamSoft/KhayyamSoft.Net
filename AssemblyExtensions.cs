@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Reflection;
 
-namespace AS.Windows
+namespace KhayyamApps.Windows
 {
 	public static class AssemblyExtensions
 	{

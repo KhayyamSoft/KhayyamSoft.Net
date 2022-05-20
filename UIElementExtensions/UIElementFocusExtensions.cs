@@ -1,7 +1,7 @@
 ﻿using System.Windows.Input;
 using System.Windows;
 
-namespace AS.Windows.UIElementExtensions
+namespace KhayyamApps.Windows.UIElementExtensions
 {
 	public static class UIElementFocusExtensions
 	{

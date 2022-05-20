@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace AS.Windows.WindowExtensions
+namespace KhayyamApps.Windows.WindowExtensions
 {
 	public static class WindowStateControl
 	{
