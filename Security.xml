@@ -80,6 +80,36 @@
             <param name="iv">Encrypt initialization vector (IV)</param>
             <returns>Decrypted string</returns>
         </member>
+        <member name="T:Security.Crypto.RSA">
+            <summary>
+            Providing methods to encrypt and decrypt data using Advanced Encryption Standard (RSA) / Rijndael. <br/>
+             The following code uses the RSACryptoServiceProvider class
+             to encrypt a string into an array of bytes and then decrypt the bytes back into a string.
+            </summary>
+        </member>
+        <member name="M:Security.Crypto.RSA.RSAEncrypt(System.String,System.Security.Cryptography.RSAParameters,System.Boolean)">
+            <summary>
+             Pass the data to ENCRYPT and the public key information 
+            (using RSACryptoServiceProvider.ExportParameters(false) <br/>
+            example for use this method:
+            encryptedData = RSAEncrypt(dataToEncrypt, RSA.ExportParameters(false));
+            </summary>
+            <param name="input">Data to encrypt</param>
+            <param name="rsaKeyInfo">RSAKeyInfo (Encrypt key)</param>
+            <param name="doOAEPPadding"></param>
+            <returns>Encrypted byte array</returns>
+        </member>
+        <member name="M:Security.Crypto.RSA.RSADecrypt(System.String,System.Security.Cryptography.RSAParameters,System.Boolean)">
+            <summary>
+            Pass the data to DECRYPT and the private key information 
+            (using RSACryptoServiceProvider.ExportParameters(true)
+            example for use this method:
+            decryptedData = RSADecrypt(encryptedData, RSA.ExportParameters(true));
+            </summary>
+            <param name="input">Data to encrypt</param>
+            <param name="rsaKeyInfo">RSAKeyInfo (Decrypt key)</param>
+            <param name="doOAEPPadding">Decrypt byte array</param>
+        </member>
         <member name="T:Security.Hash.Hash">
             <summary>
             Providing Common Hash Functions
