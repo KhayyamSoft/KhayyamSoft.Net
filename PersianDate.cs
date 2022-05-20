@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Globalization;
 
-namespace AS.DateAndTime
+namespace KhayyamApps.DateAndTime
 {
 	public static class PersianDate
 	{
@@ -24,7 +24,7 @@ namespace AS.DateAndTime
 		public static string GetMonthName(int month)
 		{
 			if (month >= 1 && month <= 12) return PersianMonthNames[month - 1];
-			else throw new System.ArgumentOutOfRangeException(nameof(month), month, "Month Number Must Be In Range Of [1-12]");
+			else throw new ArgumentOutOfRangeException(nameof(month), month, "Month Number Must Be In Range Of [1-12]");
 		}
 
 		/// <summary>
@@ -53,10 +53,10 @@ namespace AS.DateAndTime
 		/// </summary>
 		/// <param name="date"></param>
 		/// <returns>An Integer Representing Corresponding DateTime In Persian Calendar. e.g: 14001231 (Last Day Of Year 1400)</returns>
-		public static int GetPersianDateInInt(this DateTime date) 
-			=> GetPersianYear(date) * 10000 +
-				GetPersianMonth(date) * 100 +
-				GetPersianDay(date);
+		public static int GetPersianDateInInt(this DateTime date)
+			=> date.GetPersianYear() * 10000 +
+				date.GetPersianMonth() * 100 +
+				date.GetPersianDay();
 
 		/// <summary>
 		/// Convert DateTime To Equal Date In Persian Calendar And Returns It In String Format
@@ -64,6 +64,6 @@ namespace AS.DateAndTime
 		/// <param name="date"></param>
 		/// <returns>A String Representing Corresponding DateTime In Persian Calendar. e.g: 1400/12/31 (Last Day Of Year 1400)</returns>
 		public static string GetPersianDateInString(this DateTime date)
-			=> $"{GetPersianYear(date):D4}/{GetPersianMonth(date):D2}/{GetPersianDay(date):D2}"; 
+			=> $"{date.GetPersianYear():D4}/{date.GetPersianMonth():D2}/{date.GetPersianDay():D2}";
 	}
 }

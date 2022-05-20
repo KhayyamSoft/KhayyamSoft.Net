@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace AS.DateAndTime
+namespace KhayyamApps.DateAndTime
 {
 	public static class UnixTime
 	{
@@ -8,7 +8,7 @@ namespace AS.DateAndTime
 		/// Get Now Local Time In Unix Time Stamp
 		/// </summary>
 		/// <returns>Number Of Seconds Elapsed Since 1970/1/1 00:00 To Now</returns>
-		public static long GetUnixTimeStamp() 
+		public static long GetUnixTimeStamp()
 			=> DateTimeOffset.Now.ToUnixTimeSeconds();
 
 		/// <summary>
