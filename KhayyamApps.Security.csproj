@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <Authors>KhayyamApps</Authors>
     <Company>KhayyamApps</Company>
@@ -15,7 +15,7 @@
     <PackageIcon>icon_security.png</PackageIcon>
     <PackageIconUrl />
     <ApplicationIcon>icon_security.ico</ApplicationIcon>
-    <Version>0.2</Version>
+    <Version>0.2.1</Version>
     <AssemblyVersion>$(Version)</AssemblyVersion>
     <FileVersion>$(Version)</FileVersion>
   </PropertyGroup>
