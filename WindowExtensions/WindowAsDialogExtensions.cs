@@ -10,7 +10,7 @@
 		/// <returns></returns>
 		public static bool SafeCloseDialog(this System.Windows.Window window, bool? dialogResult = null)
 		{
-			try { window.DialogResult = true; } catch { return false; }
+			try { window.DialogResult = dialogResult; } catch { return false; }
 			try { window.Close(); } catch { return false; }
 			return true;
 		}
