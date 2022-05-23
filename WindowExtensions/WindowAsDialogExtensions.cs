@@ -11,7 +11,7 @@ namespace KhayyamApps.Windows.WindowExtensions
 		/// <param name="window">Dialog To Close</param>
 		/// <param name="dialogResult">Result To Set As Dialog Result</param>
 		/// <returns></returns>
-		public static bool SafeCloseDialog(this System.Windows.Window window, bool? dialogResult = null)
+		public static bool SafeCloseDialog(this Window window, bool? dialogResult = null)
 		{
 			try { window.DialogResult = dialogResult; } catch { return false; }
 			try { window.Close(); } catch { return false; }
@@ -24,9 +24,9 @@ namespace KhayyamApps.Windows.WindowExtensions
 		/// <typeparam name="TWin">Type Of Window Class</typeparam>
 		/// <param name="result">Result Of ShowDialog</param>
 		/// <returns>New Instance Of Window Derived Class</returns>
-		public static TWin ShowNewDialog<TWin>(out bool? result) where TWin : Window
+		public static TWin ShowNewDialog<TWin>(out bool? result, params object?[]? args) where TWin : Window
 		{
-			var instance = (TWin)Activator.CreateInstance(typeof(TWin));
+			var instance = (TWin)Activator.CreateInstance(typeof(TWin), args);
 			result = instance.ShowDialog();
 			return instance;
 		}
