@@ -10,20 +10,20 @@ namespace KhayyamApps.Windows
 	/// <typeparam name="TEntity">Collection Items Entity Type</typeparam>
 	public class SearchHandler<TEntity> where TEntity : class
 	{
-		public SearchHandler(object collection)
+		/// <summary></summary>
+		/// <param name="notFoundElement">UIElement Responsible For Showing User Search Found Anything Or Not</param>
+		public SearchHandler(object collection, UIElement notFoundElement = null)
 		{
 			Collection = collection;
-		}
-
-		/// <summary>UIElement Responsible For Showing User Search Found Anything Or Not</summary>
-		/// <param name="notFoundElement"></param>
-		public SearchHandler(object collection, UIElement notFoundElement) : this(collection)
-		{
-			NotFoundElement = notFoundElement;
+			NotFoundElement = notFoundElement ?? NotFoundElement;
 		}
 
 		private object Collection { get; set; }
-		private UIElement NotFoundElement { get; set; }
+
+		/// <summary>
+		/// UIElement Responsible For Showing User Search Found Anything Or Not
+		/// </summary>
+		public UIElement NotFoundElement { get; set; }
 
 		/// <summary>
 		/// Function Which Gets TEntity Object And Says Should It Be In Search Result Or Not
