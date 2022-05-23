@@ -1,4 +1,7 @@
-﻿namespace KhayyamApps.Windows.WindowExtensions
+﻿using System.Windows;
+using System;
+
+namespace KhayyamApps.Windows.WindowExtensions
 {
 	public static class WindowAsDialogExtensions
 	{
@@ -13,6 +16,19 @@
 			try { window.DialogResult = dialogResult; } catch { return false; }
 			try { window.Close(); } catch { return false; }
 			return true;
+		}
+
+		/// <summary>
+		/// Creates New Instance Of Window Derived Class & Shows It As Dialog
+		/// </summary>
+		/// <typeparam name="TWin">Type Of Window Class</typeparam>
+		/// <param name="result">Result Of ShowDialog</param>
+		/// <returns>New Instance Of Window Derived Class</returns>
+		public static TWin ShowNewDialog<TWin>(out bool? result) where TWin : Window
+		{
+			var instance = (TWin)Activator.CreateInstance(typeof(TWin));
+			result = instance.ShowDialog();
+			return instance;
 		}
 	}
 }
