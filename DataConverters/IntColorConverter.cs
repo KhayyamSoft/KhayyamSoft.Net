@@ -14,14 +14,16 @@ namespace KhayyamApps.Windows.DataConverters
 		public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
 		{
 			var bytes = BitConverter.GetBytes((int)value);
-			return new SolidColorBrush(Color.FromArgb(bytes[3], bytes[2], bytes[1], bytes[0]));
+			var brush = new SolidColorBrush(Color.FromArgb(bytes[3], bytes[2], bytes[1], bytes[0]));
+			return brush;
 		}
 
 		public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
 		{
 			var mCol = ((SolidColorBrush)value).Color;
 			var c = System.Drawing.Color.FromArgb(mCol.A, mCol.R, mCol.G, mCol.B);
-			return c.ToArgb();
+			var result = c.ToArgb();
+			return result;
 		}
 	}
 }
