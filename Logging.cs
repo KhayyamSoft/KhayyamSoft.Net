@@ -57,5 +57,27 @@ namespace KhayyamApps.Windows
 				ErrorShowHandler(exception);
 			}
 		}
+
+		/// <summary>
+		/// Simple Handler For Logging And Showing Custom UI By ErrorShowHandler (Using Serilog)
+		/// </summary>
+		public static void LogUnhandledException(this Serilog.ILogger logger, Exception exception, string assemblyName = "-")
+		{
+			var message = $"Unhandled exception";
+			try
+			{
+				message = $"{message} in {assemblyName}";
+			}
+			catch (Exception ex)
+			{
+				logger.Error(ex, $"Exception in {nameof(LogUnhandledException)}");
+				ErrorShowHandler(ex);
+			}
+			finally
+			{
+				logger.Error(exception, message);
+				ErrorShowHandler(exception);
+			}
+		}
 	}
 }
