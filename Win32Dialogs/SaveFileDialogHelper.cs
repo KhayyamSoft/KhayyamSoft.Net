@@ -10,14 +10,13 @@ namespace KhayyamApps.Windows.Win32Dialogs
 		/// <summary>
 		/// Creates New Win32 Save File Dialog
 		/// </summary>
-		/// <param name="fileAndPathCheck">CheckPathExists & CheckFileExists</param>
+		/// <param name="pathCheck">CheckPathExists</param>
 		/// <returns>SaveFileDialog Object</returns>
-		public static SaveFileDialog NewSaveFileDialog(bool fileAndPathCheck = true, string defaultExt = null, string filter = null)
+		public static SaveFileDialog NewSaveFileDialog(bool pathCheck = true, string defaultExt = null, string filter = null)
 		{
 			var dialog =  new SaveFileDialog()
 			{
-				CheckPathExists = fileAndPathCheck,
-				CheckFileExists = fileAndPathCheck,
+				CheckPathExists = pathCheck,
 				DefaultExt = defaultExt ?? string.Empty,
 				Filter = filter
 			};
