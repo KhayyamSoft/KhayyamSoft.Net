@@ -6,23 +6,35 @@ using System.Windows.Media;
 namespace KhayyamApps.Windows.DataConverters
 {
 	/// <summary>
-	/// Convert Int To SolidColorBrush And Vice Versa
+	/// Convert Int To SolidColorBrush And Vice Versa.
+	/// Return #000000 Brush Or 0 If Convert Fails
 	/// </summary>
 	[ValueConversion(typeof(int), typeof(SolidColorBrush))]
 	public class IntColorConverter : IValueConverter
 	{
 		public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
 		{
-			var bytes = BitConverter.GetBytes((int)value);
-			var brush = new SolidColorBrush(Color.FromArgb(bytes[3], bytes[2], bytes[1], bytes[0]));
+			//Return #000000 If Convert Fails
+			if (!int.TryParse(value.ToString(), out int result))
+			{
+				return new SolidColorBrush(Color.FromRgb(0, 0, 0));
+			}
+			var bytes = BitConverter.GetBytes(result);
+			var brush = new SolidColorBrush(Color.FromRgb(bytes[2], bytes[1], bytes[0]));
 			return brush;
 		}
 
 		public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
 		{
-			var mCol = ((SolidColorBrush)value).Color;
-			var c = System.Drawing.Color.FromArgb(mCol.A, mCol.R, mCol.G, mCol.B);
-			var result = c.ToArgb();
+			//Return 0 If Convert Fails
+			if (value.GetType() != typeof(SolidColorBrush))
+			{
+				return 0;
+			}
+			var brush = value as SolidColorBrush;
+			var mediaColor = brush.Color;
+			var color = System.Drawing.Color.FromArgb(255, mediaColor.R, mediaColor.G, mediaColor.B);
+			var result = color.ToArgb();
 			return result;
 		}
 	}
