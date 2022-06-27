@@ -1,5 +1,4 @@
 ﻿using System.Windows;
-using System;
 
 namespace KhayyamApps.Windows.WindowExtensions
 {
@@ -19,16 +18,58 @@ namespace KhayyamApps.Windows.WindowExtensions
 		}
 
 		/// <summary>
+		/// Creates New Instance Of Window Derived Class, Shows It As Dialog And Return Result
+		/// </summary>
+		/// <typeparam name="TWin">Type Of Window Class</typeparam>
+		/// <param name="args">Args To Construct New Window From It</param>
+		/// <returns>Result Of ShowDialog</returns>
+		public static bool? ShowNewDialog<TWin>(params object?[]? args) where TWin : Window
+		{
+			ShowNewDialog<TWin>(out bool? result, args);
+			return result;
+		}
+
+		/// <summary>
+		/// Creates New Instance Of Window Derived Class, Shows It As Dialog And Return Result
+		/// </summary>
+		/// <typeparam name="TWin">Type Of Window Class</typeparam>
+		/// <param name="owner">Owner Of New Dialog</param>
+		/// <param name="args">Args To Construct New Window From It</param>
+		/// <returns>Result Of ShowDialog</returns>
+		public static bool? ShowNewDialog<TWin>(Window owner, params object?[]? args) where TWin : Window
+		{
+			ShowNewDialog<TWin>(out bool? result, owner, args);
+			return result;
+		}
+
+		/// <summary>
 		/// Creates New Instance Of Window Derived Class & Shows It As Dialog
 		/// </summary>
 		/// <typeparam name="TWin">Type Of Window Class</typeparam>
 		/// <param name="result">Result Of ShowDialog</param>
+		/// <param name="args">Args To Construct New Window From It</param>
 		/// <returns>New Instance Of Window Derived Class</returns>
 		public static TWin ShowNewDialog<TWin>(out bool? result, params object?[]? args) where TWin : Window
 		{
-			var instance = (TWin)Activator.CreateInstance(typeof(TWin), args);
-			result = instance.ShowDialog();
-			return instance;
+			var win = ActivatorHelpers.Build<TWin>(args);
+			result = win.ShowDialog();
+			return win;
+		}
+
+		/// <summary>
+		/// Creates New Instance Of Window Derived Class & Shows It As Dialog
+		/// </summary>
+		/// <typeparam name="TWin">Type Of Window Class</typeparam>
+		/// <param name="owner">Owner Of New Dialog</param>
+		/// <param name="result">Result Of ShowDialog</param>
+		/// <param name="args">Args To Construct New Window From It</param>
+		/// <returns>New Instance Of Window Derived Class</returns>
+		public static TWin ShowNewDialog<TWin>(out bool? result, Window owner, params object?[]? args) where TWin : Window
+		{
+			var win = ActivatorHelpers.Build<TWin>(args);
+			win.Owner = owner;
+			result = win.ShowDialog();
+			return win;
 		}
 	}
 }
