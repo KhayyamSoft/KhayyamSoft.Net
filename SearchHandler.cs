@@ -34,11 +34,15 @@ namespace KhayyamApps.Windows
 		/// Filter Collection Default View With Internal Filter Function.
 		/// Also Show/Hides NotFoundElement If Exists Based On Search Result.
 		/// </summary>
-		public void Search()
+		/// <returns>Whether Search Founds Anything Or Not</returns>
+		public bool Search()
 		{
-			var result = Collection.SetFilterOnCollectionView(FilterFuction);
-			if(NotFoundElement != null)
-				NotFoundElement.Visibility = result == true ? Visibility.Collapsed : Visibility.Visible;
+			var succeed = Collection.SetFilterOnCollectionView(FilterFuction);
+			if (NotFoundElement != null)
+			{
+				NotFoundElement.Visibility = succeed ? Visibility.Collapsed : Visibility.Visible;
+			}
+			return succeed;
 		}
 	}
 }
