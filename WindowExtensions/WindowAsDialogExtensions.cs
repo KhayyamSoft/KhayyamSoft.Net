@@ -36,9 +36,9 @@ namespace KhayyamApps.Windows.WindowExtensions
 		/// <param name="owner">Owner Of New Dialog</param>
 		/// <param name="args">Args To Construct New Window From It</param>
 		/// <returns>Result Of ShowDialog</returns>
-		public static bool? ShowNewDialog<TWin>(Window owner, params object?[]? args) where TWin : Window
+		public static bool? ShowNewDialog<TWin>(this Window owner, params object?[]? args) where TWin : Window
 		{
-			ShowNewDialog<TWin>(out bool? result, owner, args);
+			ShowNewDialog<TWin>(owner, out bool? result, args);
 			return result;
 		}
 
@@ -51,7 +51,7 @@ namespace KhayyamApps.Windows.WindowExtensions
 		/// <returns>New Instance Of Window Derived Class</returns>
 		public static TWin ShowNewDialog<TWin>(out bool? result, params object?[]? args) where TWin : Window
 		{
-			var win = ActivatorHelpers.Build<TWin>(args);
+			var win = WindowHelpers.BuildNewDialog<TWin>(args);
 			result = win.ShowDialog();
 			return win;
 		}
@@ -60,14 +60,13 @@ namespace KhayyamApps.Windows.WindowExtensions
 		/// Creates New Instance Of Window Derived Class & Shows It As Dialog
 		/// </summary>
 		/// <typeparam name="TWin">Type Of Window Class</typeparam>
-		/// <param name="owner">Owner Of New Dialog</param>
+		/// <param name="owner">Owner Of New Dialog. Null By Default.</param>
 		/// <param name="result">Result Of ShowDialog</param>
 		/// <param name="args">Args To Construct New Window From It</param>
 		/// <returns>New Instance Of Window Derived Class</returns>
-		public static TWin ShowNewDialog<TWin>(out bool? result, Window owner, params object?[]? args) where TWin : Window
+		public static TWin ShowNewDialog<TWin>(this Window owner, out bool? result, params object?[]? args) where TWin : Window
 		{
-			var win = ActivatorHelpers.Build<TWin>(args);
-			win.Owner = owner;
+			var win = WindowHelpers.BuildNewDialog<TWin>(owner, args);
 			result = win.ShowDialog();
 			return win;
 		}
