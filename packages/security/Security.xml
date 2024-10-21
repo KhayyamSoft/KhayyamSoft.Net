@@ -1,0 +1,173 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>KhayyamApps.Security</name>
+    </assembly>
+    <members>
+        <member name="M:KhayyamApps.Security.BC.AES.Encrypt(System.String,System.ReadOnlySpan{System.Char})">
+            <summary>
+            Encrypt Text With Specified Key And AES Engine
+            </summary>
+            <param name="plain">Raw Text</param>
+            <param name="key">Key For Encryption</param>
+            <returns>Base64 Encrypted String</returns>
+        </member>
+        <member name="M:KhayyamApps.Security.BC.AES.Decrypt(System.String,System.ReadOnlySpan{System.Char})">
+            <summary>
+            Decrypt Text With Specified Key And AES Engine
+            </summary>
+            <param name="cipher">Encrypted Text</param>
+            <param name="key">Key For Decryption</param>
+            <returns>UTF-8 Decrypted String</returns>
+        </member>
+        <member name="M:KhayyamApps.Security.BC.BCBase.EncryptOrDecrypt(System.Boolean,System.Byte[],System.ReadOnlySpan{System.Byte},Org.BouncyCastle.Crypto.IBlockCipher)">
+            <summary>
+            Encrypt/Decrypt Bytes Sequence With A Specified Key And BouncyCastle Crypto Engine
+            </summary>
+            <param name="forEncrypt">Set true For Encrypt And false For Decrypt</param>
+            <param name="input">Bytes Sequence To Encrypt/Decrypt</param>
+            <param name="keyByte">Encrypt/Decrypt Key</param>
+            <param name="blockCipher">Use One Engine From Org.BouncyCastle.Crypto.Engines</param>
+            <returns></returns>
+        </member>
+        <member name="M:KhayyamApps.Security.BC.BCBase.Encrypt(System.Byte[],System.ReadOnlySpan{System.Byte},Org.BouncyCastle.Crypto.IBlockCipher)">
+            <summary>
+            Encrypt Bytes With Specified Key And BouncyCastle Crypto Engine
+            </summary>
+            <param name="plain">Unencrypted Bytes</param>
+            <param name="keyByte">Key For Encryption</param>
+            <param name="blockCipher">Use One Engine From Org.BouncyCastle.Crypto.Engines</param>
+            <returns>Encrypted Bytes</returns>
+        </member>
+        <member name="M:KhayyamApps.Security.BC.BCBase.Decrypt(System.String,System.ReadOnlySpan{System.Byte},Org.BouncyCastle.Crypto.IBlockCipher)">
+            <summary>
+            Decrypt Base64 Encoded String With Specified Key And BouncyCastle Crypto Engine
+            </summary>
+            <param name="cipher">Base64 Encoded String</param>
+            <param name="keyByte">Key For Decryption</param>
+            <param name="blockCipher">Use One Engine From Org.BouncyCastle.Crypto.Engines</param>
+            <returns>Decrypted Bytes</returns>
+        </member>
+        <member name="T:KhayyamApps.Security.Crypto.AES">
+            <summary>
+            Providing methods to encrypt and decrypt data using Advanced Encryption Standard (AES) / Rijndael 
+            </summary>
+        </member>
+        <member name="M:KhayyamApps.Security.Crypto.AES.Encrypt(System.String,System.Byte[],System.Byte[])">
+            <summary>
+            Encrypt an input string using provided key and iv with AES algorithm
+            </summary>
+            <param name="plainText">Data to encrypt</param>
+            <param name="key">Key to encrypt</param>
+            <param name="iv">Initialization Vector (IV)</param>
+            <returns>Encrypted byte array</returns>
+        </member>
+        <member name="M:KhayyamApps.Security.Crypto.AES.Encrypt(System.String,System.Byte[]@,System.Byte[]@)">
+            <summary>
+            Encrypt an input string using random key and iv with AES algorithm
+            </summary>
+            <param name="plainText">Data to encrypt</param>
+            <param name="key">Encrypt key</param>
+            <param name="iv">Encrypt initialization vector (IV)</param>
+            <returns>Encrypted byte array</returns>
+        </member>
+        <member name="M:KhayyamApps.Security.Crypto.AES.Decrypt(System.Byte[],System.Byte[],System.Byte[])">
+            <summary>
+            Decrypt an encrypted byte array using provided key and iv with AES algorithm
+            </summary>
+            <param name="encryptedText">Byte array of encrypted text</param>
+            <param name="key">Encrypt key</param>
+            <param name="iv">Encrypt initialization vector (IV)</param>
+            <returns>Decrypted string</returns>
+        </member>
+        <member name="T:KhayyamApps.Security.Crypto.RSA">
+            <summary>
+            Providing methods to encrypt and decrypt data using Advanced Encryption Standard (RSA) / Rijndael. <br/>
+             The following code uses the RSACryptoServiceProvider class
+             to encrypt a string into an array of bytes and then decrypt the bytes back into a string.
+            </summary>
+        </member>
+        <member name="M:KhayyamApps.Security.Crypto.RSA.RSAEncrypt(System.String,System.Security.Cryptography.RSAParameters,System.Boolean)">
+            <summary>
+             Pass the data to ENCRYPT and the public key information 
+            (using RSACryptoServiceProvider.ExportParameters(false) <br/>
+            example for use this method:
+            encryptedData = RSAEncrypt(dataToEncrypt, RSA.ExportParameters(false));
+            you must creat an instance of RSACryptoServiceProvider for use this method.
+            </summary>
+            <param name="input">Data to encrypt</param>
+            <param name="rsaKeyInfo">RSAKeyInfo (Encrypt key)</param>
+            <param name="doOAEPPadding"></param>
+            <returns>Encrypted byte array</returns>
+        </member>
+        <member name="M:KhayyamApps.Security.Crypto.RSA.RSADecrypt(System.String,System.Security.Cryptography.RSAParameters,System.Boolean)">
+            <summary>
+            Pass the data to DECRYPT and the private key information 
+            (using RSACryptoServiceProvider.ExportParameters(true)
+            example for use this method:
+            decryptedData = RSADecrypt(encryptedData, RSA.ExportParameters(true));
+            </summary>
+            <param name="input">Data to encrypt</param>
+            <param name="rsaKeyInfo">RSAKeyInfo (Decrypt key)</param>
+            <param name="doOAEPPadding">Decrypt byte array</param>
+        </member>
+        <member name="T:KhayyamApps.Security.Hash.Hash">
+            <summary>
+            Providing Common Hash Functions
+            </summary>
+        </member>
+        <member name="M:KhayyamApps.Security.Hash.Hash.GetSHA256Hash(System.String)">
+            <summary>
+            Takes a string as input and returns it hashed by SHA256 algorithm as a string
+            </summary>
+            <param name="input">Must Be Not Null</param>
+            <returns>SHA256Hash</returns>
+        </member>
+        <member name="M:KhayyamApps.Security.Hash.Hash.GetSHA512Hash(System.String)">
+            <summary>
+            Takes a string as input and returns it hashed by SHA512 algorithm as a string
+            </summary>
+            <param name="input">Must Be Not Null</param>
+            <returns>SHA512Hash</returns>
+        </member>
+        <member name="T:KhayyamApps.Security.KeyGenerator.KeyGenerator">
+            <summary>
+            Providing Methods to Generate Passwords and Keys
+            </summary>
+        </member>
+        <member name="M:KhayyamApps.Security.KeyGenerator.KeyGenerator.GeneratePassword(System.Int32,System.Boolean)">
+            <summary>
+            Generate Random Password
+            </summary>
+            <param name="length">Password Length (should be equal or greater than 8)</param>
+            <param name="containAmbiguous">Wheter to include ambiguous characters ({}[]()/\'"`~,;:.&lt;&gt;) in password or not</param>
+            <returns>Random Password</returns>
+        </member>
+        <member name="M:KhayyamApps.Security.KeyGenerator.KeyGenerator.GenerateKey(System.Int32)">
+            <summary>
+            Generate Random Byte Sequence
+            </summary>
+            <param name="length">Key Bytes Number</param>
+            <returns>Array</returns>
+        </member>
+        <member name="T:KhayyamApps.Security.Utilities.Arrays">
+            <summary>
+            Providing Helper Methods To Manipulate Arrays
+            </summary>
+        </member>
+        <member name="M:KhayyamApps.Security.Utilities.Arrays.ShuffleArray``1(``0[])">
+            <summary>
+            Shuffle an Array Based on Fisher–Yates Modern Algorithm
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KhayyamApps.Security.Utilities.Arrays.ShuffleString(System.String)">
+            <summary>
+            Shuffle a String Based on Fisher–Yates Modern Algorithm
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
